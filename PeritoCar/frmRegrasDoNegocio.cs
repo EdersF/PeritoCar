@@ -102,6 +102,9 @@ namespace PeritoCar
 
         private void btnInserir3_Click(object sender, EventArgs e)
         {
+            int idTipoServico, idTipoVeiculo;
+            string valorServico, taxaFranquia, taxaDetran;
+
             if(cmbTipoServico.Text == "" || cmbTipoVeiculo.Text == "" || txtTaxaDetran.Text == "" || 
                 txtValorServico.Text == "" || txtTaxaFranquia.Text == "" )
             {
@@ -109,6 +112,17 @@ namespace PeritoCar
                 return;
             }
 
+            idTipoServico = Convert.ToInt32(liteBd.ConsultaScalar("SELECT id_tipo_servico FROM Tipo_Servicos WHERE tipo = '" + cmbTipoServico.Text + "'"));
+            liteBd.FecharConexao();
+            idTipoVeiculo = Convert.ToInt32(liteBd.ConsultaScalar("SELECT id_tipo_veiculo FROM Tipo_Veiculos WHERE tipo = '" + cmbTipoVeiculo.Text + "'"));
+            liteBd.FecharConexao();
+            valorServico = txtValorServico.Text.Replace(",", ".");
+            taxaFranquia = txtTaxaFranquia.Text.Replace(",", ".");
+            taxaDetran = txtTaxaDetran.Text.Replace(",", ".");
+
+            liteBd.InsertDeleteUpdate("INSERT INTO Servicos (id_tipo_servico, id_tipo_veiculo, valor_servico, taxa_franquia, taxa_detran) "+
+                "VALUES ("+ idTipoServico +", "+ idTipoVeiculo +", "+ valorServico +", "+ taxaFranquia +", "+ taxaDetran +")");
+            liteBd.FecharConexao();
 
         }
     }
