@@ -12,21 +12,11 @@ namespace PeritoCar
 {
     public partial class frmPrincipal : Form
     {
-        private int childFormNumber = 0;
-
         public frmPrincipal()
         {
             InitializeComponent();
         }
-
-        private void ShowNewForm(object sender, EventArgs e)
-        {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Janela " + childFormNumber++;
-            childForm.Show();
-        }
-
+        
         private void OpenFile(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -47,25 +37,7 @@ namespace PeritoCar
             {
                 string FileName = saveFileDialog.FileName;
             }
-        }
-
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
+        }       
         
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -95,14 +67,32 @@ namespace PeritoCar
             }
         }
 
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void menuRegrasNegocio_Click(object sender, EventArgs e)
         {
-
+            frmRegrasDoNegocio frmRegrasDoNegocio = new frmRegrasDoNegocio();
+            frmRegrasDoNegocio.MdiParent = this;
+            frmRegrasDoNegocio.Show();
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmCadastroClientes frmCadastroClientes = new frmCadastroClientes();
+            frmCadastroClientes.MdiParent = this;
+            frmCadastroClientes.Show();
+        }
 
+        private void técnicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadastroTecnico frmCadastroTecnico = new frmCadastroTecnico();
+            frmCadastroTecnico.MdiParent = this;
+            frmCadastroTecnico.Show();
+        }
+
+        private void menuCadastroUsuario_Click(object sender, EventArgs e)
+        {
+            frmCadastroUsuario frmCadastroUsuario = new frmCadastroUsuario();
+            frmCadastroUsuario.MdiParent = this;
+            frmCadastroUsuario.Show();
         }
     }
 }

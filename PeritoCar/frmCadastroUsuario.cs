@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace PeritoCar
@@ -124,13 +117,13 @@ namespace PeritoCar
             {
                 case "INCLUIR": //Incluir
                     if (txtUsuario.Text == "" || txtEmail.Text == "")
-                    {
+                    {//Se os campos estiverem vazios
                         MessageBox.Show("Os campos obrigatórios não podem estar vazios!", "Erro!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtNome.Focus();
                         return;
                     }
                     try
-                    {
+                    {//Inserindo no Banco de Dados
                         liteBd.InsertDeleteUpdate("INSERT INTO USUARIOS (usuario, nome, email, senha, mudar_senha) "+
                         "VALUES ('" + txtUsuario.Text + "', '" + txtNome.Text + "', '" + txtEmail.Text + "', '', 'true')");
                         Limpar_Campos();
@@ -168,7 +161,7 @@ namespace PeritoCar
 
                 case "EXCLUIR": //Excluir
                     DialogResult resposta;
-                    resposta = MessageBox.Show("Tem certeza que deseja apagar o usuário " + txtUsuario.Text + " ?", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    resposta = MessageBox.Show("Tem certeza que deseja apagar o usuário " + txtUsuario.Text + " ?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (resposta == DialogResult.No)
                         return;
                     try

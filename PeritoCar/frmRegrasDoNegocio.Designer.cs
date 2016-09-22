@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabTipoVeiculo = new System.Windows.Forms.TabPage();
             this.txtTipoVeiculo = new System.Windows.Forms.TextBox();
@@ -136,6 +139,7 @@
             this.dgvTipoVeiculo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTipoVeiculo.Size = new System.Drawing.Size(267, 421);
             this.dgvTipoVeiculo.TabIndex = 16;
+            this.dgvTipoVeiculo.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvTipoVeiculo_UserDeletedRow);
             this.dgvTipoVeiculo.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvTipoVeiculo_UserDeletingRow);
             // 
             // colIdTipoVeiculo
@@ -202,6 +206,7 @@
             this.dgvTipoServico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTipoServico.Size = new System.Drawing.Size(267, 421);
             this.dgvTipoServico.TabIndex = 19;
+            this.dgvTipoServico.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvTipoServico_UserDeletedRow);
             this.dgvTipoServico.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvTipoServico_UserDeletingRow);
             // 
             // dataGridViewTextBoxColumn1
@@ -284,7 +289,7 @@
             this.txtTaxaFranquia.Location = new System.Drawing.Point(262, 104);
             this.txtTaxaFranquia.Name = "txtTaxaFranquia";
             this.txtTaxaFranquia.Size = new System.Drawing.Size(62, 20);
-            this.txtTaxaFranquia.TabIndex = 27;
+            this.txtTaxaFranquia.TabIndex = 56;
             // 
             // cmbTipoServico
             // 
@@ -293,7 +298,7 @@
             this.cmbTipoServico.Location = new System.Drawing.Point(7, 104);
             this.cmbTipoServico.Name = "cmbTipoServico";
             this.cmbTipoServico.Size = new System.Drawing.Size(172, 21);
-            this.cmbTipoServico.TabIndex = 26;
+            this.cmbTipoServico.TabIndex = 52;
             // 
             // label2
             // 
@@ -311,7 +316,7 @@
             this.cmbTipoVeiculo.Location = new System.Drawing.Point(7, 47);
             this.cmbTipoVeiculo.Name = "cmbTipoVeiculo";
             this.cmbTipoVeiculo.Size = new System.Drawing.Size(172, 21);
-            this.cmbTipoVeiculo.TabIndex = 24;
+            this.cmbTipoVeiculo.TabIndex = 50;
             // 
             // label5
             // 
@@ -346,7 +351,7 @@
             this.txtTaxaDetran.Location = new System.Drawing.Point(400, 48);
             this.txtTaxaDetran.Name = "txtTaxaDetran";
             this.txtTaxaDetran.Size = new System.Drawing.Size(64, 20);
-            this.txtTaxaDetran.TabIndex = 20;
+            this.txtTaxaDetran.TabIndex = 58;
             // 
             // txtValorServico
             // 
@@ -354,14 +359,14 @@
             this.txtValorServico.Location = new System.Drawing.Point(262, 47);
             this.txtValorServico.Name = "txtValorServico";
             this.txtValorServico.Size = new System.Drawing.Size(62, 20);
-            this.txtValorServico.TabIndex = 20;
+            this.txtValorServico.TabIndex = 54;
             // 
             // btnInserir3
             // 
             this.btnInserir3.Location = new System.Drawing.Point(389, 101);
             this.btnInserir3.Name = "btnInserir3";
             this.btnInserir3.Size = new System.Drawing.Size(75, 23);
-            this.btnInserir3.TabIndex = 21;
+            this.btnInserir3.TabIndex = 60;
             this.btnInserir3.Text = "Inserir";
             this.btnInserir3.UseVisualStyleBackColor = true;
             this.btnInserir3.Click += new System.EventHandler(this.btnInserir3_Click);
@@ -389,6 +394,8 @@
             this.dgvServicos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServicos.Size = new System.Drawing.Size(506, 367);
             this.dgvServicos.TabIndex = 22;
+            this.dgvServicos.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvServicos_UserDeletedRow);
+            this.dgvServicos.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvServicos_UserDeletingRow);
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -412,6 +419,9 @@
             // 
             // colValorServico
             // 
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = "0";
+            this.colValorServico.DefaultCellStyle = dataGridViewCellStyle7;
             this.colValorServico.HeaderText = "Valor do Serviço";
             this.colValorServico.Name = "colValorServico";
             this.colValorServico.ReadOnly = true;
@@ -419,6 +429,8 @@
             // 
             // colFranquia
             // 
+            dataGridViewCellStyle8.Format = "C2";
+            this.colFranquia.DefaultCellStyle = dataGridViewCellStyle8;
             this.colFranquia.HeaderText = "Taxa da Franquia";
             this.colFranquia.Name = "colFranquia";
             this.colFranquia.ReadOnly = true;
@@ -426,6 +438,8 @@
             // 
             // colDetran
             // 
+            dataGridViewCellStyle9.Format = "C2";
+            this.colDetran.DefaultCellStyle = dataGridViewCellStyle9;
             this.colDetran.HeaderText = "Taxa do Detran";
             this.colDetran.Name = "colDetran";
             this.colDetran.ReadOnly = true;
@@ -473,12 +487,6 @@
         private System.Windows.Forms.TextBox txtValorServico;
         private System.Windows.Forms.Button btnInserir3;
         private System.Windows.Forms.DataGridView dgvServicos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoVeiculo2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValorServico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colFranquia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDetran;
         private System.Windows.Forms.ComboBox cmbTipoServico;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbTipoVeiculo;
@@ -491,5 +499,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoVeiculo2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValorServico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colFranquia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDetran;
     }
 }

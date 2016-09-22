@@ -15,14 +15,14 @@ namespace PeritoCar
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);            
+            Application.SetCompatibleTextRenderingDefault(false);
 
             //frmLogin frmLogin = new frmLogin();
             //frmLogin.ShowDialog();
 
             //if (frmLogin.logado)
             //{
-                Application.Run(new frmRegrasDoNegocio());
+                Application.Run(new frmPrincipal());
             //}
         }
     }
