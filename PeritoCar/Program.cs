@@ -22,7 +22,7 @@ namespace PeritoCar
 
             //if (frmLogin.logado)
             //{
-                Application.Run(new frmPrincipal());
+                Application.Run(new frmVistoria());
             //}
         }
     }
