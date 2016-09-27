@@ -51,7 +51,6 @@ namespace PeritoCar
                 dgvClientes.Location = ponto;
                 dgvClientes.Height++;
             }
-
         }
 
         private void Limpar_Campos()

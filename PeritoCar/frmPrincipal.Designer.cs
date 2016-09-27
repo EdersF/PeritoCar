@@ -129,13 +129,14 @@
             // lançamentoToolStripMenuItem
             // 
             this.lançamentoToolStripMenuItem.Name = "lançamentoToolStripMenuItem";
-            this.lançamentoToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.lançamentoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.lançamentoToolStripMenuItem.Text = "Lançamento";
+            this.lançamentoToolStripMenuItem.Click += new System.EventHandler(this.lançamentoToolStripMenuItem_Click);
             // 
             // relatóriosToolStripMenuItem1
             // 
             this.relatóriosToolStripMenuItem1.Name = "relatóriosToolStripMenuItem1";
-            this.relatóriosToolStripMenuItem1.Size = new System.Drawing.Size(140, 22);
+            this.relatóriosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.relatóriosToolStripMenuItem1.Text = "Relatórios";
             // 
             // toolsMenu

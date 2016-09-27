@@ -94,5 +94,12 @@ namespace PeritoCar
             frmCadastroUsuario.MdiParent = this;
             frmCadastroUsuario.Show();
         }
+
+        private void lançamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmVistoria frmVistoria = new frmVistoria();
+            frmVistoria.MdiParent = this;
+            frmVistoria.Show();
+        }
     }
 }
